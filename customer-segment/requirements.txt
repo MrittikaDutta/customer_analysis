@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+
+# Development Environment----Any of the following:
+# Jupyter Notebook (.ipynb format)
+# VS Code with Python & Jupyter extensions
+# Google Colab (no installation needed)

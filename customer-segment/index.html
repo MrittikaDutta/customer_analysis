@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Segmentation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Customer Cluster Predictor</h2>
+
+    <label for="gender">Gender:</label>
+    <select id="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" placeholder="Enter age" min="1" />
+
+    <label for="income">Annual Income (k$):</label>
+    <input type="number" id="income" placeholder="Enter income" min="0" />
+
+    <label for="score">Spending Score (1-100):</label>
+    <input type="number" id="score" placeholder="Enter spending score" min="0" max="100" />
+
+    <button onclick="predict()">Predict Cluster</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function predict() {
+      const gender = document.getElementById("gender").value;
+      const age = Number(document.getElementById("age").value);
+      const income = Number(document.getElementById("income").value);
+      const score = Number(document.getElementById("score").value);
+
+      if (!age || !income || !score) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      /**
+       * For now, we'll ignore gender because your KMeans model
+       * does not include gender in the features.
+       * If you want to include gender later, we can encode it.
+       */
+
+      const payload = {
+        features: [age, income, score]
+      };
+
+      fetch("http://127.0.0.1:5000/predict", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => response.json())
+      .then(data => {
+        const resultBox = document.getElementById("result");
+        resultBox.style.display = "block";
+        resultBox.innerHTML = `
+          <h3>Prediction Result</h3>
+          <p><strong>Cluster:</strong> ${data.cluster}</p>
+          <p><strong>Description:</strong> ${data.description}</p>
+        `;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("Prediction failed. Is the Flask server running?");
+      });
+    }
+  </script>
+</body>
+</html>

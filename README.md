@@ -57,7 +57,7 @@ Built with **Python (Flask)**, **Scikit-learn**, and a frontend hosted on **Verc
 
 ## 🚀 Demo
 
-👉 **[Live Frontend on Vercel](https://your-vercel-app.vercel.app)**  
+👉 **[Live Frontend on Vercel]([https://your-vercel-app.vercel.app](https://customer-analysis-orpin.vercel.app/))**  
 👉 **API Endpoint:** `https://your-api.onrender.com/predict`
 
 ---

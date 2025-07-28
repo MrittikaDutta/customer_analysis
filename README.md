@@ -40,7 +40,7 @@ Built with **Python (Flask)**, **Scikit-learn**, and a frontend hosted on **Verc
 - **Frontend**: HTML, CSS, JavaScript
 - **Deployment**:
   - Backend: Render.com (or PythonAnywhere, Heroku)
-  - Frontend: Vercel
+  - Frontend: Vercel  https://customer-rev.vercel.app/
 
 ---
 

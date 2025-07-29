@@ -33,6 +33,9 @@ Built with **Python (Flask)**, **Scikit-learn**, and a frontend hosted on **Verc
 | 5 | Other segment |
 
 ---
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/69968a39-2540-4ebe-aa13-5484e4c8dab9" />
+
+---
 
 ## 🏗️ Tech Stack
 
@@ -43,6 +46,8 @@ Built with **Python (Flask)**, **Scikit-learn**, and a frontend hosted on **Verc
   - Frontend: Vercel  https://customer-rev.vercel.app/
 
 ---
+
+
 
 ## 🔧 How It Works
 

@@ -1,15 +1,23 @@
-# Customer Segmentation with KMeans
+# Customer Segmentation Web App
+A web application that predicts customer segments based on demographic and behavioral data using a machine learning model.
 
-A web application to predict customer clusters using KMeans clustering based on:
+
+ To predict customer clusters using KMeans clustering based on:
 
 - Age
 - Annual Income (k$)
 - Spending Score (1-100)
+---
+📦 Tech Stack
 
-Built with **Python (Flask)**, **Scikit-learn**, and a frontend hosted on **Vercel**.
+| Part     | Technologies Used                          |
+| -------- | ------------------------------------------ |
+| Frontend | HTML, CSS (dark mode with RGB), JavaScript |
+| Backend  | Python, Flask, Flask-CORS                  |
+| ML Model | Scikit-learn, joblib                       |
+| Hosting  | Render (Flask) + GitHub Pages (UI)         |
 
 ---
-
 
 ## 📊 Features
 
@@ -18,32 +26,35 @@ Built with **Python (Flask)**, **Scikit-learn**, and a frontend hosted on **Verc
 ✅ Interactive web interface  
 ✅ Clean, modern UI design  
 ✅ Frontend and backend fully separated for easy deployment
+☁️ Deployed backend via Render.
+
+
 
 ---
 
-## 🖼️ Clusters and Their Meaning
+| Cluster | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
+| 0       | High income, younger group — may need cost-effective offers.      |
+| 1       | High income, low spenders — attract with luxury offers.           |
+| 2       | High income, high spenders — premium products recommended.        |
+| 3       | Low income, high spenders — value-seekers with strong engagement. |
+| 4       | High income, low spender — potential for targeted upselling.      |
+| 5       | Younger high spenders — very responsive to trends.                |
 
-| Cluster | Description |
-|---------|-------------|
-| 0 | Young, high-spending customers |
-| 1 | Older, low-spending customers |
-| 2 | Average income and spending |
-| 3 | Wealthy but low-spending customers |
-| 4 | Low income but high spending |
-| 5 | Other segment |
 
 ---
 <img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/69968a39-2540-4ebe-aa13-5484e4c8dab9" />
 
 ---
 
-## 🏗️ Tech Stack
-
-- **Backend**: Python, Flask, Scikit-learn, Flask-CORS
-- **Frontend**: HTML, CSS, JavaScript
-- **Deployment**:
-  - Backend: Render.com (or PythonAnywhere, Heroku)
-  - Frontend: Vercel  https://customer-rev.vercel.app/
+customer-segmentation/
+├── index.html          # Frontend UI
+├── styl1.css           # CSS (dark theme, RGB colors)
+├── script.js           # JS for API calls + logic
+├── model.pkl           # Trained ML clustering model
+├── mn5.py              # Flask server for predictions
+├── README.md           # Project README
+└── screenshot.png      # UI screenshot (optional)
 
 ---
 
@@ -62,7 +73,12 @@ Built with **Python (Flask)**, **Scikit-learn**, and a frontend hosted on **Verc
 
 ## 🚀 Demo
 
-👉 **[Live Frontend on Vercel]([[https://customer-analysis-624n.vercel.app/]](https://customer-analysis-624n.vercel.app/))**  https://customer-analysis-624n.vercel.app/
+👉 **Live Frontend on Vercel** https://customer-rev.vercel.app/
+
+
 👉 **API Endpoint:** (https://customer-r-3.onrender.com)
 
 ---
+📘 License
+This project is licensed under the MIT License.
+

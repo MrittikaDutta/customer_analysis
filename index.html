@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Segmentation</title>
+  <link rel="stylesheet" href="styl1.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Customer Cluster Predictor</h2>
+
+    <label>Gender:</label>
+    <select id="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <label>Age:</label>
+    <input type="number" id="age" placeholder="Enter age" min="1" />
+
+    <label>Annual Income (k$):</label>
+    <input type="number" id="income" placeholder="Enter income" min="0" />
+
+    <label>Spending Score (1-100):</label>
+    <input type="number" id="score" placeholder="Enter spending score" min="0" max="100" />
+
+    <button onclick="predict()">Predict Cluster</button>
+
+    <div id="result" style="margin-top: 15px; font-weight: bold;"></div>
+    <div id="description" style="margin-top: 10px; color: #333;"></div>
+  </div>
+
+  <script>
+    const descriptions = {
+      0: "High income, younger group — may need cost-effective offers.",
+      1: "High income, low spenders — attract with luxury offers.",
+      2: "High income, high spenders — premium products recommended.",
+      3: "Low income, high spenders — value-seekers with strong engagement.",
+      4: "High income, low spender — potential for targeted upselling.",
+      5: "Younger high spenders — very responsive to trends."
+    };
+
+    function predict() {
+      const age = Number(document.getElementById('age').value);
+      const income = Number(document.getElementById('income').value);
+      const score = Number(document.getElementById('score').value);
+
+      if (!age || !income || !score) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      const payload = {
+        features: [age, income, score]
+      };
+
+      fetch("https://customer-r-3.onrender.com/predict", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const cluster = data.cluster;
+          const resultBox = document.getElementById("result");
+          const descriptionBox = document.getElementById("description");
+
+          resultBox.style.display = "block";
+          descriptionBox.style.display = "block";
+
+          resultBox.innerText = `Predicted Customer Segment: Cluster ${cluster}`;
+          descriptionBox.innerText = descriptions[cluster] || "No description available.";
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("Prediction failed. Is Flask running?");
+        });
+    }
+  </script>
+</body>
+</html>

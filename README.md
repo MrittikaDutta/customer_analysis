@@ -42,11 +42,6 @@ A web application that predicts customer segments based on demographic and behav
 | 5       | Younger high spenders — very responsive to trends.                |
 
 
----
-<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/69968a39-2540-4ebe-aa13-5484e4c8dab9" />
-
----
-
 customer-segmentation/
 ├── index.html          # Frontend UI
 ├── styl1.css           # CSS (dark theme, RGB colors)
@@ -69,8 +64,12 @@ customer-segmentation/
   - Age vs Spending Score
   - Annual Income vs Spending Score
   - Age, Annual Income, and Spending Score
-- Chose best model (6 clusters)
+- Chose best model (5 clusters)
+---
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/69968a39-2540-4ebe-aa13-5484e4c8dab9" />
+<img width="400" height="550" alt="Screenshot 2025-08-01 at 4 45 48 PM" src="https://github.com/user-attachments/assets/4efb6815-0fcd-411f-ab13-bc78fcc071b0" />
 
+---
 ## 🚀 Demo
 
 👉 **Live Frontend on Vercel** https://customer-rev.vercel.app/
